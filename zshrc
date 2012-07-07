@@ -1,62 +1,23 @@
-#
-# Sets Oh My Zsh options.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+fpath=($HOME/.zsh/zsh-git/functions $fpath)
+fpath=($HOME/.zsh/zsh-completions $fpath)
+fpath=($HOME/.zsh/functions $fpath)
 
-# Set the key mapping style to 'emacs' or 'vi'.
-# zstyle ':omz:module:editor' keymap 'vi'
+setopt promptsubst
+autoload -Uz promptinit && promptinit
+prompt rick
 
-# Auto convert .... to ../..
-zstyle ':omz:module:editor' dot-expansion 'no'
+autoload -U compinit
+compinit -i
+# case-insensitive,partial-word and then substring completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-# Set case-sensitivity for completion, history lookup, etc.
-zstyle ':omz:*:*' case-sensitive 'no'
-
-# Color output (auto set to 'no' on dumb terminals).
-zstyle ':omz:*:*' color 'yes'
-
-# Auto set the tab and window titles.
-zstyle ':omz:module:terminal' auto-title 'yes'
-
-# Set the Zsh modules to load (man zshmodules).
-# zstyle ':omz:load' zmodule 'attr' 'stat'
-
-# Set the Zsh functions to load (man zshcontrib).
-# zstyle ':omz:load' zfunction 'zargs' 'zmv'
-
-# Set the Oh My Zsh modules to load (browse modules).
-# The order matters.
-zstyle ':omz:load' omodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'history-substring-search' \
-  'directory' \
-  'spectrum' \
-  'utility' \
-  'completion' \
-  'prompt' \
-  'git' \
-  'syntax-highlighting' \
-  'ruby'
-
-# Set the prompt theme to load.
-# Setting it to 'random' loads a random theme.
-# Auto set to 'off' on dumb terminals.
-if [ -f ~/.zprompt ]; then
-  . ~/.zprompt
-fi
-zstyle ':omz:module:prompt' theme 'sorin'
-
-# This will make you shout: OH MY ZSHELL!
-source "$OMZ/init.zsh"
-
-# Customize to your needs...
+export CLICOLOR="Yes"
+export LSCOLORS="exgxfxfxcxdxdxhbadbxbx"
 
 # Local machine-specific configuration
 if [ -f ~/.zshrc_local ]; then
   . ~/.zshrc_local
 fi
+
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh

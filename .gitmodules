@@ -87,3 +87,15 @@
 	path = vim/bundle/vim-yankring
 	url = https://github.com/vim-scripts/YankRing.vim.git
 	ignore = dirty
+[submodule "zsh/zsh-git"]
+	path = zsh/zsh-git
+	url = https://github.com/jcorbin/zsh-git.git
+[submodule "zsh/zsh-completions"]
+	path = zsh/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "zsh/zsh-syntax-highlighting"]
+	path = zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "zsh/zsh-history-substring-search"]
+	path = zsh/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git

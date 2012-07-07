@@ -1,0 +1,57 @@
+# rick prompt theme
+
+autoload -U zgitinit
+zgitinit
+
+prompt_rick_help () {
+  cat <<'EOF'
+
+  prompt rick
+
+EOF
+}
+
+prompt_rick_setup() {
+  PROMPT=
+  PROMPT+="%F{magenta}%n@%m%F{reset} in "
+  PROMPT+="%F{blue}%~%F{reset} "
+  PROMPT+="\$(prompt_rick_scm_branch)"
+  PROMPT+="
+"
+  PROMPT+="∴ "
+
+  export PROMPT
+}
+
+prompt_rick_scm_branch() {
+  zgit_isgit || return
+
+  echo -n "on %F{green}$(zgit_head)"
+
+  if zgit_inworktree; then
+    if ! zgit_isindexclean; then
+      echo -n "%F{green}+"
+    fi
+
+    local -a dirty
+    if ! zgit_isworktreeclean; then
+      dirty+='!'
+    fi
+
+    if zgit_hasunmerged; then
+      dirty+='*'
+    fi
+
+    if zgit_hasuntracked; then
+      dirty+='?'
+    fi
+
+    if [ $#dirty -gt 0 ]; then
+      echo -n "%F{red}${(j::)dirty}"
+    fi
+  fi
+
+  echo "%F{reset} "
+}
+
+prompt_rick_setup "$@"
