@@ -1,0 +1,33 @@
+#
+# An override of the sorin prompt theme
+#
+
+function prompt_sorin_precmd {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+
+  if (( $+functions[git-info] )); then
+    git-info
+  fi
+}
+
+function prompt_sorin_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd prompt_sorin_precmd
+
+  zstyle ':omz:module:git' branch 'on %F{green}%b%F{reset}'
+  zstyle ':omz:module:git' action 'in %F{cyan}%s%F{reset}'
+  zstyle ':omz:module:git' dirty '%F{red}!%F{reset}'
+  zstyle ':omz:module:git' info 'prompt' ' %b%s%D'
+
+  PROMPT='%F{magenta}%n@%m%F{reset} in %F{blue}%~%F{reset}%f${git_info:+${(e)git_info[prompt]}}
+∴ '
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_sorin_setup "$@"
+
