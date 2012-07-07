@@ -21,9 +21,3 @@ map <leader>et :tabe %%
 
 " Toggle paste
 nmap <leader>sp :set paste! paste?<CR>
-
-" Bubble lines; see http://vimcasts.org/episodes/bubbling-text/
-nmap <C-k> ddkP
-nmap <C-j> ddp
-vmap <C-k> xkP`[V`]
-vmap <C-j> xp`[V`]
