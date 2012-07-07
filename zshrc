@@ -14,6 +14,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:
 export CLICOLOR="Yes"
 export LSCOLORS="exgxfxfxcxdxdxhbadbxbx"
 
+for plugin (bundler cloudapp); do
+  source $HOME/.zsh/plugins/$plugin/$plugin.zsh
+done
+
 # Local machine-specific configuration
 if [ -f ~/.zshrc_local ]; then
   . ~/.zshrc_local
