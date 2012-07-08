@@ -8,6 +8,7 @@ call pathogen#helptags() " auto-generate helptags for Pathogen bundles
 
 " General vim config
 runtime! config/general.vim
+runtime! config/gui.vim
 runtime! config/keybindings.vim
 
 " Plugin-specific config
