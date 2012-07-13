@@ -17,7 +17,7 @@ runtime! config/ctrlp.vim
 runtime! config/delimitMate.vim
 runtime! config/gundo.vim
 runtime! config/indent-guides.vim
-runtime! config/minibufexpl.vim
+runtime! config/lusty.vim
 runtime! config/powerline.vim
 runtime! config/syntastic.vim
 runtime! config/tabular.vim
