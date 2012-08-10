@@ -5,7 +5,7 @@ require 'rake'
 desc "Hook our dotfiles into system-standard positions."
 task :install => [:submodules] do
   # this has all the linkables from this directory.
-  linkables = %w{ackrc gemrc gitconfig ssh/config tmux.conf tmuxinator vim vimrc zsh zshrc}
+  linkables = %w{ackrc gemrc gitconfig ssh/config tmux.conf tmuxinator vim vimrc zsh zshenv zshrc}
 
   skip_all = false
   overwrite_all = false
