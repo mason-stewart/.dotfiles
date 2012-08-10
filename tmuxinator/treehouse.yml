@@ -1,0 +1,18 @@
+# ~/.tmuxinator/treehouse.yml
+# you can make as many tabs as you wish...
+
+project_name: treehouse
+project_root: ~/Code/treehouse
+pre:
+  - export RBENV_DIR=
+tabs:
+  - app:
+      layout: main-horizontal
+      panes:
+        - vim
+        - 
+  - challenge_engine:
+      layout: main-horizontal
+      panes:
+        - cd ~/Code/code_challenges && vim
+        - cd ~/Code/code_challenges && ./worker
