@@ -31,7 +31,8 @@ set list "show hidden characters
 " Real tab character: '▸'
 " Trailing spaces: '·'
 set listchars=eol:¬,extends:»,tab:▸\ ,trail:·
-let g:solarized_visibility="low" "very low contrast listchars
+let g:solarized_visibility="low" "very low contrast listchar
+let g:solarized_termcolors=256
 
 " No backups
 set noswapfile
@@ -43,4 +44,5 @@ set undodir=/tmp
 set undofile
 
 syntax on " syntax highlighting engage!
+set bg=dark
 colorscheme solarized
